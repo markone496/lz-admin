@@ -11,7 +11,7 @@ $config = config('admin');
 Route::domain($config['domain'])->group(function () {
 
     //请求日志中间件
-    Route::middleware(['option.log'])->group(function () {
+    Route::middleware(['web', 'option.log'])->group(function () {
 
         /**** 登录 ****/
         Route::get('/login', [C\IndexController::class, 'loginView'])->name('login');//登陆页
