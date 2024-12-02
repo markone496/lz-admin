@@ -1,8 +1,11 @@
 {
     "name": "lz/admin",
     "description": "Quickly Build a Backend Framework",
+    "version": "1.0.0",
     "type": "library",
     "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "lz\\admin\\": "src/"
