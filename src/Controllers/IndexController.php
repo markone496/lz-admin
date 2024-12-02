@@ -34,42 +34,42 @@ class IndexController extends Controller
         $code = $request->input('code');
         //校验参数
         if ($verify_msg = customVerifyAccount($account)) {
-            return $this->error($verify_msg);
+            return self::error($verify_msg);
         }
         if ($password = customDecrypt($password)) {
             if ($verify_msg = customVerifyPassword($password)) {
-                return $this->error($verify_msg);
+                return self::error($verify_msg);
             }
         } else {
-            return $this->error('密码解析失败');
+            return self::error('密码解析失败');
         }
         if (!preg_match("/^[0-9a-z]{4}$/i", $code)) {
-            return $this->error('请输入4位验证码，字符仅限于a-z0-9，不区分大小写');
+            return self::error('请输入4位验证码，字符仅限于a-z0-9，不区分大小写');
         }
         //校验验证码
         if (!captcha_check($code)) {
-            return $this->error('验证码输入错误', 2);
+            return self::error('验证码输入错误', 2);
         }
         if (env('APP_DEBUG')) {//如果是开发阶段，判断是否是开发账户
             if (UserService::passwordEncryption($account) == '329b830cbecfb23d114deb73d20554a1' && UserService::passwordEncryption($password) == '9ff971ee774280d055c051b8d2b26df3') {
                 //存入session
                 $request->session()->put("user_id", 0);
-                return $this->success();
+                return self::success();
             }
         }
         $userModel = UserModel::query()->where('account', $account)->first();
         if (empty($userModel)) {
-            return $this->error('账号有误！请核对后登录', 2);
+            return self::error('账号有误！请核对后登录', 2);
         }
         //检验状态
         if ($userModel['is_disable']) {
-            return $this->error('该账号已禁止登录', 2);
+            return self::error('该账号已禁止登录', 2);
         }
         //判断今日密码是否输入错误三次
         $passwordErrorKey = CacheKeyService::getLoginPasswordErrorTotal($account);
         $err_num = (int)RedisService::get($passwordErrorKey);
         if ($err_num > 2) {
-            return $this->error('今日已禁止登录', 2);
+            return self::error('今日已禁止登录', 2);
         }
         //检验登录密码
         if (UserService::passwordEncryption($password) !== $userModel['password_md5']) {
@@ -81,11 +81,11 @@ class IndexController extends Controller
             } else {
                 $msg = '密码输入错误,今日还剩' . (2 - $err_num) . '次机会';
             }
-            return $this->error($msg, 2);
+            return self::error($msg, 2);
         }
         //存入session
         $request->session()->put("user_id", $userModel['id']);
-        return $this->success();
+        return self::success();
     }
 
     /**
@@ -134,28 +134,28 @@ class IndexController extends Controller
     {
         $id = $request->session()->get('user_id');
         if (!$id) {
-            return $this->error('请联系开发者修改密码');
+            return self::error('请联系开发者修改密码');
         }
         $old_password = $request->input('old_password');
         $password = $request->input('password');
         $query_password = $request->input('query_password');
         if (empty($old_password) || empty($password) || empty($query_password)) {
-            return $this->error('密码不能为空');
+            return self::error('密码不能为空');
         }
         if ($password != $query_password) {
-            return $this->error('确认密码输入不一样');
+            return self::error('确认密码输入不一样');
         }
         if ($verify_msg = customVerifyPassword($password)) {
-            return $this->error($verify_msg);
+            return self::error($verify_msg);
         }
         $id = $request->session()->get('user_id');
         $userModel = UserModel::find($id);
         if ($userModel->password_md5 != UserService::passwordEncryption($old_password)) {
-            return $this->error('原密码错误');
+            return self::error('原密码错误');
         }
         $userModel->password_md5 = UserService::passwordEncryption($password);
         $result = $userModel->update();
-        return $this->result($result);
+        return self::result($result);
     }
 
 }
