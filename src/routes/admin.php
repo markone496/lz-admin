@@ -17,7 +17,9 @@ Route::domain($config['domain'])->group(function () {
         Route::get('/login', [C\IndexController::class, 'loginView'])->name('login');//登陆页
         Route::post('/login', [C\IndexController::class, 'checkLogin']);//检查登录
         Route::get('/loginOut', [C\IndexController::class, 'loginOut'])->name('loginOut');//退出登录
+
         Route::middleware(['admin.login'])->group(function () {
+
             Route::get('/', [C\IndexController::class, 'indexView']);//框架页
             Route::get('/passwordView', [C\IndexController::class, 'passwordView']);//修改密码页
             Route::post('/password', [C\IndexController::class, 'updatePassword']);//修改密码
