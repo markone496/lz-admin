@@ -9,11 +9,15 @@
     "autoload": {
         "psr-4": {
             "lz\\admin\\": "src/"
-        }
+        },
+        "files": [
+            "src/function.php"
+        ]
     },
     "require": {
         "php": "^8.0",
-        "laravel/framework": "^10.0"
+        "laravel/framework": "^10.0",
+        "mews/captcha": "^3.0"
     },
     "extra": {
         "laravel": {
