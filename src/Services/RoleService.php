@@ -81,10 +81,6 @@ class RoleService
                 'title' => $role['role_name']
             ];
         }
-        $data = RoleModel::query()->select([
-            'id as value',
-            'role_name as title'
-        ])->get()->toArray();
         return $data;
     }
 

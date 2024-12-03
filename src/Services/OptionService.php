@@ -75,18 +75,19 @@ class OptionService
         if (empty($data)) {
             return [];
         }
-        if (!empty($action = $data['action'])) {
-            return self::$action();
+        if (!empty($data['action'])) {
+            $data = StaticDataService::getData('get-option-' . $id, function () use ($data) {
+                try {
+                    // 获取控制器和方法名称
+                    list($className, $method) = explode('@', $data['action']);
+                    return call_user_func([$className, $method]);
+                } catch (\Throwable $exception) {
+                    return null;
+                }
+            });
+            return $data;
         }
         return array_column($data['option_config'], null, 'value');
     }
 
-    /**
-     * 系统角色选项
-     * @return array
-     */
-    public static function optionSysRole()
-    {
-        return RoleService::getRoleOption();
-    }
 }
