@@ -78,6 +78,6 @@ if (!function_exists('customVerifyPassword')) {
 if (!function_exists('isAuth')) {
     function isAuth($function_id)
     {
-        return \App\Services\Sys\SysUserService::loginUserHasFunction($function_id);
+        return \lz\admin\Services\UserService::loginUserHasFunction($function_id);
     }
 }
