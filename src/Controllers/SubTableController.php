@@ -93,7 +93,7 @@ class SubTableController extends BaseModelController
      */
     public function indexView()
     {
-        $view = 'layouts/subTableIndex';
+        $view = 'lzadmin/layouts/subTableIndex';
         $data = $this->compact();
         $data['month'] = date('Y-m');
         return view($view, $data);
