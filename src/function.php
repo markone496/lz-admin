@@ -6,7 +6,7 @@
 if (!function_exists('customAsset')) {
     function customAsset($path)
     {
-        $assetPath = asset($path, env('ASSET_HTTPS', false));
+        $assetPath = asset($path, request()->isSecure());
         $assetPath .= '?v=' . env('ASSET_VERSION');
         return $assetPath;
     }
