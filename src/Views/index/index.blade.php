@@ -135,7 +135,7 @@
             <!-- 主体内容 -->
             <div class="layui-body" id="LAY_app_body">
                 <div class="layadmin-tabsbody-item layui-show">
-                    <iframe src="/main" frameborder="0" class="layadmin-iframe"></iframe>
+                    <iframe src="{{config('admin')['main_route']}}" frameborder="0" class="layadmin-iframe"></iframe>
                 </div>
             </div>
 

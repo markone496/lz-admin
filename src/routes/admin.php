@@ -23,7 +23,6 @@ Route::domain($config['domain'])->group(function () {
             Route::get('/', [C\IndexController::class, 'indexView']);//框架页
             Route::get('/passwordView', [C\IndexController::class, 'passwordView']);//修改密码页
             Route::post('/password', [C\IndexController::class, 'updatePassword']);//修改密码
-            Route::get('/main', [C\IndexController::class, 'mainView']);//主页
 
             /**** 公共 ****/
             Route::get('/sys/icon', [C\SysController::class, 'iconView']);//图标选择页
