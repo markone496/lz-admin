@@ -1,9 +1,9 @@
 @extends('lzadmin.layouts.app')
-@section('title', env('APP_NAME','').'系统登录')
+@section('title', '系统登录')
 @section('styles')
     <link rel="stylesheet" href="{{customAsset('assets/layuiadmin/style/login.css')}}">
     <style>
-        #canvas{
+        #canvas {
             background: #FFF;
             position: fixed;
             top: 0;
@@ -19,23 +19,27 @@
 
         <div class="layadmin-user-login-main">
             <div class="layadmin-user-login-box layadmin-user-login-header">
-                <h2>{{ env('APP_NAME','') }}管理系统</h2>
+                <h2>{{ config('admin')['name'] }}管理系统</h2>
                 <p>Management System</p>
             </div>
             <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
                 <div class="layui-form-item">
-                    <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+                    <label class="layadmin-user-login-icon layui-icon layui-icon-username"
+                           for="LAY-user-login-username"></label>
                     <input type="text" name="account" lay-verify="required" placeholder="用户名" class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+                    <label class="layadmin-user-login-icon layui-icon layui-icon-password"
+                           for="LAY-user-login-password"></label>
                     <input type="password" name="password" lay-verify="required" placeholder="密码" class="layui-input">
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-row">
                         <div class="layui-col-xs7">
-                            <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
-                            <input type="text" name="code" lay-verify="required" placeholder="图形验证码" class="layui-input">
+                            <label class="layadmin-user-login-icon layui-icon layui-icon-vercode"
+                                   for="LAY-user-login-vercode"></label>
+                            <input type="text" name="code" lay-verify="required" placeholder="图形验证码"
+                                   class="layui-input">
                         </div>
                         <div class="layui-col-xs5">
                             <div style="margin-left: 10px;cursor: pointer;" id="captcha">
@@ -63,7 +67,7 @@
         };
 
         // 获取鼠标的坐标
-        window.addEventListener('mousemove', function(e) {
+        window.addEventListener('mousemove', function (e) {
             mouse.x = e.x;
             mouse.y = e.y;
         });
@@ -81,7 +85,7 @@
         }
 
         // 绘制粒子
-        Particle.prototype.draw = function() {
+        Particle.prototype.draw = function () {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
             ctx.fillStyle = this.color;
@@ -90,7 +94,7 @@
         }
 
         // 更新粒子位置
-        Particle.prototype.update = function() {
+        Particle.prototype.update = function () {
             this.x += this.speedX;
             this.y += this.speedY;
 
@@ -166,7 +170,7 @@
             animate();
         }
 
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });

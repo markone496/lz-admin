@@ -4,13 +4,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | 管理后台名称
+    |--------------------------------------------------------------------------
+    |
+    | 默认lzadmin
+    |
+    */
+    "name" => 'lzadmin',
+
+    /*
+    |--------------------------------------------------------------------------
     | 后台访问域名
     |--------------------------------------------------------------------------
     |
     | 只有该域名才能访问后台
     |
     */
-
     "domain" => env('ADMIN_URL', 'localhost'),
 
     /*
@@ -21,7 +30,6 @@ return [
     | 默认 /main
     |
     */
-
     "main_route" => env('MAIN_ROUTE', '/main'),
 
     /*
@@ -32,7 +40,6 @@ return [
     | 默认开启
     |
     */
-
     "model_delete" => env('MODEL_DELETE', true),
 
     /*
@@ -43,7 +50,6 @@ return [
     | 默认admin、加密方法在lz\admin\Services::passwordEncryption
     |
     */
-
     "dev_account" => env('DEV_ACCOUNT', '86f3059b228c8acf99e69734b6bb32cc'),
 
     /*
@@ -54,7 +60,6 @@ return [
     | 默认admin、加密方法在lz\admin\Services::passwordEncryption
     |
     */
-
     "dev_password" => env('DEV_PASSWORD', '86f3059b228c8acf99e69734b6bb32cc'),
 
     /*
@@ -65,7 +70,6 @@ return [
     | 默认阿里云OSS上传
     |
     */
-
     'upload' => [
 
         'default' => env('UPLOAD_CONNECTION', 'OSS'),
