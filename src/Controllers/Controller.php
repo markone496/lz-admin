@@ -23,4 +23,19 @@ class Controller extends BaseController
         return view($view, $data);
     }
 
+    /**
+     * @param $query
+     * @return array
+     */
+    public function layerPaginate($query)
+    {
+        /*** @var $query \Illuminate\Database\Query\Builder ** */
+        $limit = request('limit', 20);
+        $result = $query->paginate($limit);
+        $total = $result->total();
+        $data = $result->items();
+        $this->layerPaginateDataFormat($data);
+        return ['code' => 0, 'count' => $total, 'data' => $data];
+    }
+
 }
