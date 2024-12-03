@@ -58,17 +58,6 @@ class SysConfigController extends BaseModelController
             ]
         ];
     }
-    /**
-     * 删除
-     * @param Request $request
-     * @return array
-     */
-    public function delete(Request $request)
-    {
-        $id = $request->input('primary_key');
-        $result = ConfigModel::query()->where('id', $id)->delete();
-        return self::result($result);
-    }
 
 
     /**
