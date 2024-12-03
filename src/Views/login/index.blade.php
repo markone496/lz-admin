@@ -1,7 +1,7 @@
 @extends('lzadmin.layouts.app')
 @section('title', env('APP_NAME','').'系统登录')
 @section('styles')
-    <link rel="stylesheet" href="{{customAsset('asset/layuiadmin/style/login.css')}}">
+    <link rel="stylesheet" href="{{customAsset('assets/layuiadmin/style/login.css')}}">
     <style>
         #canvas{
             background: #FFF;
