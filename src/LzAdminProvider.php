@@ -3,6 +3,7 @@
 namespace lz\admin;
 
 use Illuminate\Support\ServiceProvider;
+use lz\admin\Console\DbCommand;
 
 class LzAdminProvider extends ServiceProvider
 {
@@ -42,5 +43,9 @@ class LzAdminProvider extends ServiceProvider
             __DIR__ . '/config/captcha.php', 'captcha'
         );
 
+        // 注册命令
+        $this->commands([
+            DbCommand::class,
+        ]);
     }
 }
