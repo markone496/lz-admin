@@ -19,7 +19,7 @@ class IndexController extends Controller
      */
     public function loginView()
     {
-        return $this->view('sys/login/index');
+        return $this->view('lzadmin/login/index');
     }
 
     /**
@@ -113,7 +113,7 @@ class IndexController extends Controller
         }
         $menus = MenuService::getLoginMenu();
         $user = UserService::getUserInfoById(session('user_id'));
-        return $this->view('sys/index/index', compact('menus', 'user', 'access_menus'));
+        return $this->view('lzadmin/index/index', compact('menus', 'user', 'access_menus'));
     }
 
     /**
@@ -122,7 +122,7 @@ class IndexController extends Controller
      */
     public function passwordView()
     {
-        return $this->view('sys/index/password');
+        return $this->view('lzadmin/index/password');
     }
 
     /**

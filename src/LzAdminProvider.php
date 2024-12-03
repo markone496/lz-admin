@@ -19,6 +19,12 @@ class LzAdminProvider extends ServiceProvider
             __DIR__ . '/assets' => public_path('assets'),
         ], 'assets');
 
+        // 发布视图文件
+        $this->loadViewsFrom(__DIR__ . '/../Views', 'lzadmin');
+        $this->publishes([
+            __DIR__ . '/../Views' => resource_path('views/lzadmin'),
+        ]);
+
         // 加载路由
         $this->loadRoutesFrom(__DIR__ . '/routes/admin.php');
 
