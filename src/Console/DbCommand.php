@@ -4,6 +4,7 @@ namespace lz\admin\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 
 class DbCommand extends Command
@@ -14,6 +15,17 @@ class DbCommand extends Command
 
     public function handle()
     {
+
+        //todo 检查表是否存在
+        $table_names = [
+            'sys_config', 'sys_function', 'sys_log', 'sys_menu', 'sys_model', 'sys_option', 'sys_role', 'sys_user'
+        ];
+        foreach ($table_names as $table_name) {
+            if (Schema::hasTable($table_name)) {
+                $this->error("表{$table_name}存在，请先手动删除该表！");
+                return;
+            }
+        }
         $path = base_path("vendor/lz/admin/src/admin.sql");
         if (!file_exists($path)) {
             $this->error('sql文件不存在');

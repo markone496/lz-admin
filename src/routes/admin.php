@@ -27,10 +27,10 @@ Route::domain($config['domain'])->group(function () {
             /**** 公共 ****/
             Route::get('/sys/icon', [C\SysController::class, 'iconView']);//图标选择页
             Route::post('/sys/upload/config', [C\SysController::class, 'getOssConfig']);//获取上传token
-            /**** 刷新缓存 ****/
-            Route::get('/sys/refreshCache', [C\SysController::class, 'refreshCache']);//刷新缓存
 
             Route::prefix('sys')->middleware(['admin.superuser'])->group(function () {
+                /**** 刷新缓存 ****/
+                Route::get('/refreshCache', [C\SysController::class, 'refreshCache']);//刷新缓存
                 /**** 菜单 ****/
                 Route::get('/menu', [C\SysMenuController::class, 'indexView']);//菜单管理页
                 Route::post('/menu/getList', [C\SysMenuController::class, 'getList']);//获取树形菜单

@@ -4,6 +4,7 @@
 namespace lz\admin\Services;
 
 
+use Illuminate\Support\Facades\DB;
 use lz\admin\Models\ConfigModel;
 use lz\admin\Traits\ResTrait;
 
@@ -61,5 +62,42 @@ class ConfigService
         $data = $query->first()->toArray();
         RedisService::hset($key, $index_key, $data['data']);
         return $data['data'];
+    }
+
+    /**
+     * 表缓存和表字段缓存
+     */
+    public static function tableRefreshCache()
+    {
+        $tables = DB::select('SELECT table_name, table_comment
+                      FROM information_schema.tables
+                      WHERE table_schema = ?', [config('database.connections.mysql.database')]);
+        $tablesArray = [];
+        foreach ($tables as $table){
+            $tablesArray[] = [
+                'table_name' => $table->TABLE_NAME,
+                'table_comment' => $table->TABLE_COMMENT
+            ];
+        }
+        //存入缓存
+        $key = CacheKeyService::SYS_TABLE;
+        RedisService::set($key, $tablesArray);
+        $key = CacheKeyService::SYS_TABLE_FIELD;
+        RedisService::del($key);
+        foreach ($tablesArray as $item) {
+            $tableName = $item['table_name'];
+            $columns = DB::select("SELECT column_name, column_comment
+                       FROM information_schema.columns
+                       WHERE table_name = ?
+                       AND table_schema = ?", [$tableName, config('database.connections.mysql.database')]);
+            $columnsArray = [];
+            foreach ($columns as $column){
+                $columnsArray[] = [
+                    'column_name' => $column->COLUMN_NAME,
+                    'column_comment' => $column->COLUMN_COMMENT
+                ];
+            }
+            RedisService::hset($key, $tableName, $columnsArray);
+        }
     }
 }

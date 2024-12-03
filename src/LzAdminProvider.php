@@ -4,6 +4,7 @@ namespace lz\admin;
 
 use Illuminate\Support\ServiceProvider;
 use lz\admin\Console\DbCommand;
+use lz\admin\Console\RefreshCommand;
 
 class LzAdminProvider extends ServiceProvider
 {
@@ -46,6 +47,7 @@ class LzAdminProvider extends ServiceProvider
         // 注册命令
         $this->commands([
             DbCommand::class,
+            RefreshCommand::class,
         ]);
     }
 }
