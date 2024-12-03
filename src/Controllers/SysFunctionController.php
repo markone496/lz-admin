@@ -27,7 +27,7 @@ class SysFunctionController extends Controller
             $model = FunctionModel::find($id);
             $model->route = implode("\n", $model->route);
         }
-        return $this->view('sys/function/edit', compact('model'));
+        return $this->view('lzadmin/function/edit', compact('model'));
     }
 
     public function create(Request $request)

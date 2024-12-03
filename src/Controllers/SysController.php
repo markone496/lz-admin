@@ -62,7 +62,7 @@ class SysController extends Controller
      */
     public function iconView()
     {
-        return $this->view('sys/sys/icon');
+        return $this->view('lzadmin/sys/icon');
     }
 
     /**

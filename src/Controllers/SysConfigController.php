@@ -38,7 +38,7 @@ class SysConfigController extends Controller
         $model = ConfigModel::query()->where('index_key', $index_key)->first()->toArray();
         $config = self::config($index_key);
         $form = ModelService::getModelForm($config['model_id'], $model['data']);
-        return $this->view('sys/config/index', compact('form', 'config', 'model'));
+        return $this->view('lzadmin/config/index', compact('form', 'config', 'model'));
     }
 
     /**

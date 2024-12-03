@@ -35,7 +35,7 @@ class SysOptionController extends Controller
 
     public function indexView()
     {
-        return $this->view('sys/option/index');
+        return $this->view('lzadmin/option/index');
     }
 
     /**
@@ -140,7 +140,7 @@ class SysOptionController extends Controller
             return $this->error('数据不存在');
         }
         $config = $this->getOptionConfig();
-        return $this->view('sys/option/config', compact('config', 'option'));
+        return $this->view('lzadmin/option/config', compact('config', 'option'));
     }
 
     /**

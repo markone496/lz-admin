@@ -20,7 +20,7 @@ class SysMenuController extends Controller
      */
     public function indexView()
     {
-        return $this->view('sys/menu/index');
+        return $this->view('lzadmin/menu/index');
     }
 
     /**
@@ -45,7 +45,7 @@ class SysMenuController extends Controller
     public function addView(Request $request)
     {
         $id = $request->input('id', 0);
-        return $this->view('sys/menu/edit', compact('id'));
+        return $this->view('lzadmin/menu/edit', compact('id'));
     }
 
     /**

@@ -169,7 +169,7 @@ class SysModelController extends Controller
 
     public function indexView()
     {
-        return $this->view('sys/model/index');
+        return $this->view('lzadmin/model/index');
     }
 
     /**
@@ -294,7 +294,7 @@ class SysModelController extends Controller
         }
         $config = $this->getConfig();
         $mod = $model;
-        return $this->view('sys/model/config', compact('config', 'models', 'mod'));
+        return $this->view('lzadmin/model/config', compact('config', 'models', 'mod'));
     }
 
     /**
