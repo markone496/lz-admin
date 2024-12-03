@@ -27,7 +27,7 @@
                 <div class="layui-form">
                     <div class="layui-form-item" style="margin-top: 10px">
                         <label class="layui-form-label">方法名</label>
-                        <div class="layui-input-inline">
+                        <div class="layui-input-inline" style="width: 500px">
                             <input type="text" name="action" class="layui-input" value="{{$option->action ?? ''}}">
                         </div>
                         <a class="layui-btn" id="addCols">新增配置</a>

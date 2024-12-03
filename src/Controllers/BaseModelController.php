@@ -739,7 +739,7 @@ class BaseModelController extends Controller
      */
     public function delete(Request $request)
     {
-        return $this->error('不允许删除数据');
+//        return $this->error('不允许删除数据');
         $model = $this->getModel();
         $primary_key = (array)$request->input('primary_key');
         if (empty($primary_key)) {
