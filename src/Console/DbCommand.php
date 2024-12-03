@@ -3,6 +3,7 @@
 namespace lz\admin\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 
 class DbCommand extends Command
@@ -13,7 +14,17 @@ class DbCommand extends Command
 
     public function handle()
     {
-        // 在这里实现命令的逻辑
-        $this->info('导入成功');
+        $path = base_path("vendor/lz/admin/admin.sql");
+        if (!file_exists($path)) {
+            $this->error('sql文件不存在');
+            return;
+        }
+        $sql = file_get_contents($path);
+        try {
+            DB::unprepared($sql);
+            $this->info('导入成功');
+        } catch (\Exception $e) {
+            $this->error('导入失败： ' . $e->getMessage());
+        }
     }
 }
