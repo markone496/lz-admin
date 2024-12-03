@@ -39,7 +39,13 @@ class SysController extends Controller
         $tables = DB::select('SELECT table_name, table_comment
                       FROM information_schema.tables
                       WHERE table_schema = ?', [config('database.connections.mysql.database')]);
-        $tablesArray = json_decode(json_encode($tables), true);
+        $tablesArray = [];
+        foreach ($tables as $table){
+            $tablesArray[] = [
+                'table_name' => $table->TABLE_NAME,
+                'table_comment' => $table->TABLE_COMMENT
+            ];
+        }
         //存入缓存
         $key = CacheKeyService::SYS_TABLE;
         RedisService::set($key, $tablesArray);
