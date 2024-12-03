@@ -51,7 +51,8 @@ class IndexController extends Controller
             return self::error('验证码输入错误', 2);
         }
         if (env('APP_DEBUG')) {//如果是开发阶段，判断是否是开发账户
-            if (UserService::passwordEncryption($account) == '329b830cbecfb23d114deb73d20554a1' && UserService::passwordEncryption($password) == '9ff971ee774280d055c051b8d2b26df3') {
+            $config = config('admin');
+            if (UserService::passwordEncryption($account) == $config['dev_account'] && UserService::passwordEncryption($password) == $config['dev_password']) {
                 //存入session
                 $request->session()->put("user_id", 0);
                 return self::success();
