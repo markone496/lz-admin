@@ -147,7 +147,7 @@
 @section('scripts')
     <script>
         layui.config({
-            base: '/asset/layuiadmin/' //静态资源所在路径
+            base: '/assets/layuiadmin/' //静态资源所在路径
         }).extend({
             index: 'lib/index' //主入口模块
         }).use(['index', 'form', 'element'], function () {
