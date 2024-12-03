@@ -14,7 +14,7 @@ class DbCommand extends Command
 
     public function handle()
     {
-        $path = base_path("vendor/lz/admin/admin.sql");
+        $path = base_path("vendor/lz/admin/src/admin.sql");
         if (!file_exists($path)) {
             $this->error('sql文件不存在');
             return;
