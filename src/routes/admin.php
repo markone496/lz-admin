@@ -62,6 +62,14 @@ Route::domain($config['domain'])->group(function () {
                 Route::get('/option/config', [C\SysOptionController::class, 'config']);//获取配置
                 Route::post('/option/updateConfig', [C\SysOptionController::class, 'updateConfig']);//修改配置
 
+                /**** 系统配置 ****/
+                Route::get('/config', [C\SysConfigController::class, 'indexView']);//页面
+                Route::post('/config/list', [C\SysConfigController::class, 'getList']);//列表数据
+                Route::get('/config/edit', [C\SysConfigController::class, 'editView']);//编辑页面
+                Route::post('/config/create', [C\SysConfigController::class, 'create']);//新增
+                Route::post('/config/update', [C\SysConfigController::class, 'update']);//编辑
+                Route::post('/config/delete', [C\SysConfigController::class, 'delete']);//删除
+
                 /**** 请求日志 ****/
                 Route::get('/log', [C\SysLogController::class, 'indexView']);//模型页
                 Route::post('/log/list', [C\SysLogController::class, 'getList']);//数据
@@ -91,7 +99,7 @@ Route::domain($config['domain'])->group(function () {
                 Route::post('/role/delete', [C\SysRoleController::class, 'delete']);//删除角色
                 Route::post('/role/copy', [C\SysRoleController::class, 'copy']);//复制角色
                 /**** 配置 ****/
-                Route::get('/config/{index_key}', [C\SysConfigController::class, 'indexView']);//配置页
+                Route::get('/config/{index_key}', [C\SysConfigController::class, 'configView']);//配置页
                 Route::post('/config/update/{index_key}', [C\SysConfigController::class, 'save']);//保存配置
             });
 

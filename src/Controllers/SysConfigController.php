@@ -8,37 +8,80 @@ use lz\admin\Services\ConfigService;
 use lz\admin\Services\ModelService;
 use Illuminate\Http\Request;
 
-class SysConfigController extends Controller
+class SysConfigController extends BaseModelController
 {
 
     /**
-     * 配置
-     * @param $index_key
-     * @return mixed
+     * 路由
+     * @var string
      */
-    private static function config($index_key)
+    public $route = '/sys/config/';
+
+    /**
+     * 模型
+     * @return \lz\admin\Models\BaseModel|array|\Illuminate\Database\Eloquent\Builder
+     */
+    public function getModel()
     {
-        $data = [
-            'APP_VERSION' => ['model_id' => 1, 'auth' => isAuth(13)],
-            'APP_CONFIG' => ['model_id' => 2, 'auth' => isAuth(15)],
-            'AP' => ['model_id' => 13, 'auth' => isAuth(41)],
-            'IM' => ['model_id' => 33, 'auth' => isAuth(70)],
-            'WEB3_SET' => ['model_id' => 19, 'auth' => isAuth(91)],
+        return [
+            'title' => '系统配置',
+            'choose_type' => '',
+            'table_config' => [
+                ['table' => 'sys_config', 'primary_key' => 'id', 'join' => '', 'field_1' => '', 'field_2' => '', 'synch_io' => '']
+            ],
+            'cols_config' => [
+                ['table' => 'sys_config', 'field' => 'id', 'alias' => '', 'title' => 'ID', 'width' => '80', 'fixed' => '', 'align' => 'center', 'sort' => '1', 'option' => '', 'show_type' => ''],
+                ['table' => 'sys_config', 'field' => 'index_key', 'alias' => '', 'title' => '标识', 'width' => '200', 'fixed' => '', 'align' => 'center', 'sort' => '', 'option' => '', 'show_type' => ''],
+                ['table' => 'sys_config', 'field' => 'title', 'alias' => '', 'title' => '标题', 'width' => '200', 'fixed' => '', 'align' => 'center', 'sort' => '', 'option' => '', 'show_type' => ''],
+                ['table' => 'sys_config', 'field' => 'model_id', 'alias' => '', 'title' => '模型ID', 'width' => '200', 'fixed' => '', 'align' => 'center', 'sort' => '', 'option' => '', 'show_type' => ''],
+                ['table' => 'sys_config', 'field' => 'function_id', 'alias' => '', 'title' => '权限ID', 'width' => '200', 'fixed' => '', 'align' => 'center', 'sort' => '', 'option' => '', 'show_type' => ''],
+                ['table' => 'sys_config', 'field' => 'data', 'alias' => '', 'title' => '配置', 'width' => '300', 'fixed' => '', 'align' => 'center', 'sort' => '', 'option' => '', 'show_type' => ''],
+                ['table' => 'sys_config', 'field' => 'created_at', 'alias' => '', 'title' => '创建时间', 'width' => '170', 'fixed' => '', 'align' => 'center', 'sort' => '', 'option' => '', 'show_type' => ''],
+                ['table' => 'sys_config', 'field' => 'updated_at', 'alias' => '', 'title' => '修改时间', 'width' => '170', 'fixed' => '', 'align' => 'center', 'sort' => '', 'option' => '', 'show_type' => '']
+            ],
+            'toolbar_config' => [
+                ['title' => '新增', 'event' => 'create', 'color' => '', 'function_id' => '']
+            ],
+            'tool_config' => [
+                ['bind' => '', 'title' => '编辑', 'event' => 'update', 'color' => '', 'function_id' => ''],
+                ['bind' => '', 'title' => '删除', 'event' => 'delete', 'color' => 'layui-bg-red', 'function_id' => '']
+            ],
+            'search_config' => [
+                ['table' => 'sys_config', 'field' => 'index_key', 'title' => '标识', 'category' => 'input', 'option' => '', 'type' => '', 'range' => '', 'show_const' => '1'],
+                ['table' => 'sys_config', 'field' => 'title', 'title' => '标题', 'category' => 'input', 'option' => '', 'type' => '', 'range' => '', 'show_const' => '1']
+            ],
+            'form_config' => [
+                ['table' => 'sys_config', 'field' => 'index_key', 'title' => '标识', 'category' => 'input', 'required' => '1', 'value' => '', 'option' => '', 'type' => 'text', 'ban_edit' => ''],
+                ['table' => 'sys_config', 'field' => 'title', 'title' => '标题', 'category' => 'input', 'required' => '1', 'value' => '', 'option' => '', 'type' => 'text', 'ban_edit' => ''],
+                ['table' => 'sys_config', 'field' => 'model_id', 'title' => '模型ID', 'category' => 'input', 'required' => '1', 'value' => '', 'option' => '', 'type' => 'number', 'ban_edit' => ''],
+                ['table' => 'sys_config', 'field' => 'function_id', 'title' => '权限ID', 'category' => 'input', 'required' => '1', 'value' => '', 'option' => '', 'type' => 'number', 'ban_edit' => ''],
+            ]
         ];
-        return $data[$index_key];
     }
+    /**
+     * 删除
+     * @param Request $request
+     * @return array
+     */
+    public function delete(Request $request)
+    {
+        $id = $request->input('primary_key');
+        $result = ConfigModel::query()->where('id', $id)->delete();
+        return self::result($result);
+    }
+
 
     /**
      * 配置页
      * @param $index_key
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function indexView($index_key)
+    public function configView($index_key)
     {
         $model = ConfigModel::query()->where('index_key', $index_key)->first()->toArray();
-        $config = self::config($index_key);
-        $form = ModelService::getModelForm($config['model_id'], $model['data']);
-        return $this->view('lzadmin/config/index', compact('form', 'config', 'model'));
+        $form = ModelService::getModelForm($model['model_id'], $model['data']);
+        $auth = isAuth($model['function_id']);
+        return $this->view('lzadmin/config/index', compact('form', 'auth', 'model'));
     }
 
     /**
@@ -50,7 +93,7 @@ class SysConfigController extends Controller
     public function save($index_key, Request $request)
     {
         $data = [];
-        $config = self::config($index_key);
+        $config = ConfigModel::query()->where('index_key', $index_key)->first()->toArray();
         $model = ModelService::getModelById($config['model_id']);
         foreach ($model['form_config'] as $item) {
             $field = $item['field'];
@@ -66,18 +109,8 @@ class SysConfigController extends Controller
         if (!$result) {
             return $this->error();
         }
-        $this->updateCallback($index_key, $data);
         ConfigService::refreshCache($index_key);
         return $this->result($result);
     }
 
-    /**
-     * 保存成功回调
-     * @param $index_key
-     * @param $data
-     */
-    private function updateCallback($index_key, $data)
-    {
-
-    }
 }

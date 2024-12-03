@@ -14,7 +14,7 @@
                             @foreach($form as $html)
                                 {!! $html !!}
                             @endforeach
-                            @if($config['auth'])
+                            @if($auth)
                                 <div class="layui-form-item">
                                     <div class="layui-input-block">
                                         <button class="layui-btn" lay-submit lay-filter="submit">确认保存</button>

@@ -42,6 +42,13 @@ class MenuService
                     'children' => null
                 ],
                 [
+                    'title' => '系统配置',
+                    'route' => '/sys/config',
+                    'icon' => '',
+                    'is_hide' => 0,
+                    'children' => null
+                ],
+                [
                     'title' => '刷新系统缓存',
                     'route' => '/sys/refreshCache',
                     'icon' => '',
