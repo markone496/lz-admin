@@ -135,7 +135,7 @@ class IndexController extends Controller
     {
         $id = $request->session()->get('user_id');
         if (!$id) {
-            return self::error('请联系开发者修改密码');
+            return self::error('请在配置文件中设置开发账号密码');
         }
         $old_password = $request->input('old_password');
         $password = $request->input('password');
