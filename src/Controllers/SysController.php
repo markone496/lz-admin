@@ -57,7 +57,13 @@ class SysController extends Controller
                        FROM information_schema.columns
                        WHERE table_name = ?
                        AND table_schema = ?", [$tableName, config('database.connections.mysql.database')]);
-            $columnsArray = json_decode(json_encode($columns), true);
+            $columnsArray = [];
+            foreach ($columns as $column){
+                $columnsArray[] = [
+                    'column_name' => $column->COLUMN_NAME,
+                    'column_comment' => $column->COLUMN_COMMENT
+                ];
+            }
             RedisService::hset($key, $tableName, $columnsArray);
         }
     }
