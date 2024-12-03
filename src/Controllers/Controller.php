@@ -24,6 +24,14 @@ class Controller extends BaseController
     }
 
     /**
+     * 分页查询数据格式化
+     * @param $data
+     */
+    public function layerPaginateDataFormat(&$data)
+    {
+    }
+
+    /**
      * @param $query
      * @return array
      */
