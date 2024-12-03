@@ -16,7 +16,7 @@ class SysTableController extends Controller
     {
         $key = CacheKeyService::SYS_TABLE;
         $data = RedisService::get($key);
-        return $this->view('/sys/table/index', compact('data'));
+        return $this->view('/lzadmin/table/index', compact('data'));
     }
 
     public function infoView(Request $request)
@@ -31,6 +31,6 @@ class SysTableController extends Controller
                 'fields' => RedisService::hget($key, $item)
             ];
         }
-        return $this->view('/sys/table/info', compact('data'));
+        return $this->view('/lzadmin/table/info', compact('data'));
     }
 }

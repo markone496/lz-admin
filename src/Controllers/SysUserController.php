@@ -61,7 +61,7 @@ class SysUserController extends BaseModelController
 
     public function indexView()
     {
-        return view('/sys/user/index', $this->compact());
+        return view('/lzadmin/user/index', $this->compact());
     }
 
 

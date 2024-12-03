@@ -266,7 +266,7 @@ class BaseModelController extends Controller
             }
         }
         $editForm = $this->edit($infoConfig, true);
-        return $this->view('/sys/sys/edit', compact('editForm'));
+        return $this->view('/lzadmin/sys/edit', compact('editForm'));
     }
 
 
@@ -538,7 +538,7 @@ class BaseModelController extends Controller
             }
         }
         $editForm = $this->edit($formConfig, $edit_status);
-        return $this->view('/sys/sys/edit', compact('editForm'));
+        return $this->view('/lzadmin/sys/edit', compact('editForm'));
     }
 
     /**

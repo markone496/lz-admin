@@ -50,7 +50,7 @@ class SysRoleController extends BaseModelController
 
     public function indexView()
     {
-        return view('/sys/role/index', $this->compact());
+        return view('/lzadmin/role/index', $this->compact());
     }
 
     /**
@@ -68,7 +68,7 @@ class SysRoleController extends BaseModelController
             $function_id = $model->function_ids;
         }
         $menus = MenuService::getTreeDataHasFunction($function_id);
-        return $this->view('/sys/role/edit', compact('model', 'menus'));
+        return $this->view('/lzadmin/role/edit', compact('model', 'menus'));
     }
 
     /**
