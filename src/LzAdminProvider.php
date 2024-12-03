@@ -12,6 +12,7 @@ class LzAdminProvider extends ServiceProvider
         // 发布配置文件
         $this->publishes([
             __DIR__ . '/config/admin.php' => config_path('admin.php'),
+            __DIR__ . '/config/captcha.php' => config_path('captcha.php'),
         ], 'config');
 
         // 发布资源文件
@@ -36,6 +37,9 @@ class LzAdminProvider extends ServiceProvider
         // 绑定配置文件
         $this->mergeConfigFrom(
             __DIR__ . '/config/admin.php', 'admin'
+        );
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/captcha.php', 'captcha'
         );
 
     }
