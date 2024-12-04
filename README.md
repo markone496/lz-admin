@@ -17,9 +17,32 @@
 
 ## 安装教程
 
-- 下载包：composer require lz/admin
-- 发布配置文件：php artisan vendor:publish --provider="lz\admin\LzAdminProvider"
-- 生成数据库文件：php artisan lzadmin:db
+- 下载包：`composer require lz/admin`
+- 发布配置文件：`php artisan vendor:publish --provider="lz\admin\LzAdminProvider"`
+- 生成数据库文件：`php artisan lzadmin:db`
+- 注册后台中间件：打开`app\Http\Kernel.php`、在`$routeMiddleware`里添加以下内容
+> `'admin.login' => \lz\admin\Middleware\AdminLogin::class,`
+>
+> `'admin.superuser' => \lz\admin\Middleware\AdminSuperUser::class,`
+>
+> `'admin.auth' => \lz\admin\Middleware\AdminAuth::class,`
+>
+> `'option.log' => \lz\admin\Middleware\OptionLog::class,`
+
+- 配置`.env`文件：
+> `ADMIN_URL=admin.com`
+>
+> `MODEL_DELETE=false`
+>
+> `REDIS_CLIENT=predis`
+>
+> `OSS_ACCESS_KEY_ID=`
+>
+> `OSS_ACCESS_KEY_SECRET=`
+>
+> `OSS_HOST=`
+>
+> `OSS_CDN=  `        
 
 ## 备注
 
