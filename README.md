@@ -70,7 +70,7 @@ OSS_CDN=
 
 展示
 ------------
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/login.jpg)
+<img src="https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/login.jpg" alt="示例图片" width="400" height="300">
 
 
 
