@@ -1,6 +1,10 @@
 介绍
 ------------
-基于laravel框架搭建的快速开发后台。开发者只需要手动创建好表，后台的增删改查以及菜单权限都可以通过配置生成。内置各种表单组件和图表库、解决了80%的后台开发需求。
+<p align="center">⛵<code>lz-admin</code>是 laravel 的管理界面构建器，它可以帮助您仅用几行代码构建 CRUD 后端。</p>
+<p align="center">
+<a href="https://laravel-admin.org/docs/zh">文档</a> |
+<a href="https://demo.laravel-admin.org">演示</a>
+</p>
 
 要求
 ------------
@@ -64,9 +68,9 @@ OSS_CDN=
 ```
 访问后台路由地址`admin.com`。默认开发者账号:`admin`、密码：`admin`。开发者账号只有 `APP_DEBUG=true` 时才可登录      
 
-演示地址
+展示
 ------------
-暂未开放
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/main/images/login.jpg)
 
 
 
