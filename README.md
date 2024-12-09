@@ -42,7 +42,8 @@
 >
 > `OSS_HOST=`
 >
-> `OSS_CDN=  `        
+> `OSS_CDN=  
+- 访问后台路由地址`admin.com`。默认开发者账号:`admin`、密码：`admin`        
 
 ## 备注
 

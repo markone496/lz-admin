@@ -1,7 +1,7 @@
 {
     "name": "lz/admin",
     "description": "Quickly Build a Backend Framework",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
