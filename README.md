@@ -71,30 +71,30 @@ OSS_CDN=
 展示
 ------------
 - 登录界面
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/login.jpg)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/login.png)
 - 选项设置
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/option1.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/option2.jpg)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/option1.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/option2.png)
 - 模型设置
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model1.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model2.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model3.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model4.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model5.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model6.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model7.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model8.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model9.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model10.jpg)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model1.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model2.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model3.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model4.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model5.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model6.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model7.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model8.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model9.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/model10.png)
 - 菜单设置
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/menu1.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/menu2.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/menu3.jpg)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/menu1.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/menu2.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/menu3.png)
 - 页面展示
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/index1.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/index2.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/index3.jpg)
-![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/index4.jpg)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/index1.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/index2.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/index3.png)
+![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/index4.png)
 
 
 
