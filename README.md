@@ -2,8 +2,8 @@
 ------------
 <p align="center">⛵<code>lz-admin</code>是 laravel 的管理界面构建器，它可以帮助您仅用几行代码构建 CRUD 后端。</p>
 <p align="center">
-<a href="https://laravel-admin.org/docs/zh">文档</a> |
-<a href="https://demo.laravel-admin.org">演示</a>
+<a href="javascript:">文档</a> |
+<a href="javascript:">演示</a>
 </p>
 
 要求
