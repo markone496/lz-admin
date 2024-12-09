@@ -70,6 +70,13 @@ OSS_CDN=
 
 展示
 ------------
+
+<style>
+    img {
+        width: 50%; /* 设置图片宽度为50% */
+    }
+</style>
+
 - 登录界面
 ![示例图片](https://raw.githubusercontent.com/markone496/lz-admin/refs/heads/master/src/images/login.png)
 - 选项设置
