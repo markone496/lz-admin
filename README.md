@@ -53,6 +53,7 @@ php artisan lzadmin:db
 
 - 配置`.env`文件
 ```
+APP_DEBUG=true
 ADMIN_URL=admin.com
 MODEL_DELETE=false
 REDIS_CLIENT=predis
@@ -61,8 +62,7 @@ OSS_ACCESS_KEY_SECRET=
 OSS_HOST=
 OSS_CDN= 
 ```
-访问后台路由地址`admin.com`。默认开发者账号:`admin`、密码：`admin`        
-
+访问后台路由地址`admin.com`。默认开发者账号:`admin`、密码：`admin`。开发者账号只有 `APP_DEBUG=true` 时才可登录      
 
 演示地址
 ------------
