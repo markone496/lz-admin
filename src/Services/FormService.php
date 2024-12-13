@@ -350,7 +350,7 @@ class FormService
             $temp .= "<div class='image'>";
             $temp .= "<img src='{$val}'>";
             if (empty($ban_edit)) {
-                $temp .= ' <div class="btn"><a class="layui-btn layui-btn-sm upload">更换</a><a class="layui-btn layui-btn-sm layui-btn-danger delete">删除</a></div>';
+                $temp .= ' <div class="btn"><a class="layui-btn layui-btn-sm upload">更换</a><a class="layui-btn layui-btn-sm layui-btn-danger delete"   data-status="true">删除</a></div>';
             }
             $temp .= '</div></div>';
         }
